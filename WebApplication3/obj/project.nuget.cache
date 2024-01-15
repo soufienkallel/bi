@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "dgSpecHash": "fUwFt27AN5FBHLdmM7ifurtOt5HRCzhDSttMaI6IPzkaQo81r+u3fStdschCAJ5rjavrnykug83heP8pg7J47g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Lenovo\\source\\repos\\WebApplication3\\WebApplication3\\WebApplication3.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.analysisservices.adomdclient.netcore.retail.amd64\\19.74.2\\microsoft.analysisservices.adomdclient.netcore.retail.amd64.19.74.2.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.analysisservices.adomdclient.retail.amd64\\19.74.2\\microsoft.analysisservices.adomdclient.retail.amd64.19.74.2.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.identity.client\\4.43.0\\microsoft.identity.client.4.43.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Le package 'Microsoft.AnalysisServices.AdomdClient.retail.amd64 19.74.2' a été restauré en utilisant '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' au lieu du framework cible du projet 'net6.0'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
+      "libraryId": "Microsoft.AnalysisServices.AdomdClient.retail.amd64",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
+}
