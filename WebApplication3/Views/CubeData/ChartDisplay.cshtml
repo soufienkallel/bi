@@ -1,4 +1,51 @@
-﻿@page
-@model WebApplication3.Views.CubeData.ChartDisplayModel
-@{
+﻿@{
+    ViewData["Title"] = "Chart Display";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<h2>Chart Display</h2>
+
+<section scripts>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div>
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('https://localhost:7185/api/CubeData/query1')
+                .then(response => response.json())
+                .then(data => {
+                    // Process data and render Chart.js chart
+                    renderChart(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+
+            function renderChart(data) {
+                var labels = data.map(item => item['[Age Bands].[Age ID].[Age ID].[MEMBER_CAPTION]']);
+                var values = data.map(item => item['[Measures].[Sent]']);
+
+                var ctx = document.getElementById('myChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Sent',
+                            data: values,
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</section>

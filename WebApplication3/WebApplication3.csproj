@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AnalysisServices.AdomdClient.NetCore.retail.amd64" Version="19.74.2" />
     <PackageReference Include="Microsoft.AnalysisServices.AdomdClient.retail.amd64" Version="19.74.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
   </ItemGroup>
 
 </Project>

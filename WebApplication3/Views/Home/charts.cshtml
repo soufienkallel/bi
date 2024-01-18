@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Charts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+@*     <script>
+        // Your specific script for this view
+        fetch('https://localhost:7185/api/CubeData/query1')
+            .then(response => response.json())
+            .then(data => {
+                // Process data and render Chart.js chart
+                renderChart(data);
+            });
+
+        function renderChart(data) {
+            // var labels = data.data.map(item => item['[Campaigns].[Prj Mkg ID].[Prj Mkg ID].[MEMBER_CAPTION]']);
+            var sentValues = data.data.map(item => item['[Measures].[Sent]']);
+            // var dispatchedValues = data.data.map(item => item['[Measures].[Dispatched]']);
+            // var delivValues = data.data.map(item => item['[Measures].[Deliv]']);
+            var agevalues = data.data.map(item => item['[Age Bands].[Age ID].[Age ID].[MEMBER_CAPTION]']);
+
+
+            var ctx = document.getElementById('myChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Sent',
+                            data: sentValues,
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                        },
+                        {
+                            label: 'Age',
+                            data: agevalues,
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                        },
+
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+    </script> *@
+}
+<script>
+    fetch('https://localhost:7185/api/CubeData/query1')
+        .then(response => response.json())
+        .then(data => {
+            // Process data and render Chart.js chart
+            renderChart(data);
+        });
+
+    function renderChart(data) {
+        var labels = data.data.map(item => item['[Age Bands].[Age ID].[Age ID].[MEMBER_CAPTION]']);
+        var values = data.data.map(item => item['[Measures].[Sent]']);
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Sent',
+                    data: values,
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+</script>
+
+<h1>Charts</h1>
+
+<div>
+    <canvas id="myChart" width="400" height="400"></canvas>
+</div>
